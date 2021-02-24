@@ -73,11 +73,11 @@ WSGI_APPLICATION = 'clothingshop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'clothingsshop',
+        'NAME': 'ClothingShop',
         'USER': 'postgres',
         'PASSWORD': '123',
         'HOST': '127.0.0.1',
-        'PORT': '54408'
+        'PORT': '5432'
     }
 }
 
