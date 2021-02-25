@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Clothes(models.Model):
+    """Одежда"""
     pk_clothes = models.AutoField(db_column='PK_Clothes', primary_key=True)
     name = models.CharField(db_column='Name', max_length=255)
     description = models.TextField(db_column='Description', blank=True, null=True)
@@ -19,6 +20,7 @@ class Clothes(models.Model):
 
 
 class ClothesCategory(models.Model):
+    """Категория"""
     pk_clothes_category = models.AutoField(db_column='PK_ClothesCategory', primary_key=True)
     name = models.CharField(db_column='Name', max_length=255)
 
@@ -30,6 +32,7 @@ class ClothesCategory(models.Model):
 
 
 class Color(models.Model):
+    """Цвет"""
     pk_color = models.AutoField(db_column='PK_Color', primary_key=True)
     name = models.CharField(db_column='Name', max_length=255)
 

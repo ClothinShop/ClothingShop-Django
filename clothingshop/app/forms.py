@@ -3,6 +3,7 @@ from app.models import Clothes, ClothesCategory, Color
 
 
 class ClothesForm(forms.ModelForm):
+    """Форма для редактирования информации об одежде"""
     name = forms.CharField(max_length=255, label="Название")
     name.widget.attrs.update({'class': 'form-control mb-3'})
 
