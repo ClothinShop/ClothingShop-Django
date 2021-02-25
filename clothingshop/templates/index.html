@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Каталог
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <section class="text-center container">
+        <div class="row py-3">
+            <h2 class="fw-light">Каталог товаров</h2>
+        </div>
+    </section>
+
+    <div class="album pb-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                {% for item in clothes %}
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="static{{ item.image_path }}" class="card-img-top" alt="" width="100%" height="100%">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">{{ item.name }}</h5>
+                            <p class="card-text">{{ item.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="product/{{item.pk_clothes}}" class="btn btn-sm btn-outline-dark">Подробнее</a>
+                                <small class="fw-bold">{{ item.price }} р.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

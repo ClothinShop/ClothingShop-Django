@@ -6,7 +6,7 @@ class Clothes(models.Model):
     name = models.CharField(db_column='Name', max_length=255)
     description = models.TextField(db_column='Description', blank=True, null=True)
     price = models.DecimalField(db_column='Price', max_digits=10, decimal_places=2)
-    image_path = models.CharField(db_column='ImagePath', max_length=255, blank=True, null=True)
+    image_path = models.ImageField(db_column='ImagePath', max_length=255, blank=True, null=True)
     sizes = models.CharField(db_column='Sizes', max_length=150)
 
     pk_clothes_category = models.ForeignKey('Clothescategory', models.DO_NOTHING,
