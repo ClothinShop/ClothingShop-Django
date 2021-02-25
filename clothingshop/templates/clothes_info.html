@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ clothes.name }}
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <div class="container py-4">
+            <h3 class="fw-bold pb-3 text-center">{{ clothes.name }}</h3>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-2">
+                <div class="col">
+                    <img src="/static{{ clothes.image_path }}" alt="" width="100%" height="100%">
+                </div>
+                <div class="col py-4 ps-lg-5">
+                    <p class="py-1"><strong>Категория:</strong> {{ clothes.pk_clothes_category.name }}</p>
+                    <p class="py-1"><strong>Цвет:</strong> {{ clothes.pk_color.name }}</p>
+                    <p class="py-1"><strong>Размеры:</strong> {{ clothes.sizes }}</p>
+                    <p class="py-1"><strong>Цена:</strong> {{ clothes.price }} р.</p>
+                    <p class="py-1"><strong>Описание:</strong> {{ clothes.description }}</p>
+                    <a href="" class="btn btn-dark py-1 btn-lg">Заказать</a>
+                </div>
+            </div>
+        </div>
+</main>
+
+{% endblock %}

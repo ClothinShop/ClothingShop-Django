@@ -4,6 +4,12 @@ from app.models import Clothes
 
 
 def index(request):
-    # Главная
+    """Главная, каталог одежды"""
     clothes = Clothes.objects.all()
     return render(request, "index.html", {"clothes": clothes})
+
+
+def clothes_info(request, id):
+    """Просмотр информации об одежде"""
+    clothes = Clothes.objects.get(pk_clothes=id)
+    return render(request, "clothes_info.html", {"clothes": clothes})
