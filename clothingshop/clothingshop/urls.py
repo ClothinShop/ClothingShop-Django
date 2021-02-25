@@ -27,4 +27,10 @@ urlpatterns = [
     # Просмотр информации об одежеде
     path('product/<int:id>', views.clothes_info, name="clothes_info"),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # Изменение информации об одежде
+    path('product/update/<int:id>', views.update_clothes_info, name="update_clothes_info"),
+
+]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

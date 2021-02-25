@@ -25,6 +25,9 @@ class ClothesCategory(models.Model):
     class Meta:
         db_table = 'ClothesCategory'
 
+    def __str__(self):
+        return self.name
+
 
 class Color(models.Model):
     pk_color = models.AutoField(db_column='PK_Color', primary_key=True)
@@ -32,3 +35,6 @@ class Color(models.Model):
 
     class Meta:
         db_table = 'Color'
+
+    def __str__(self):
+        return self.name

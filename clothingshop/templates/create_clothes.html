@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {% if id %}
+    Изменение товара
+  {% else %}
+    Добавление товара
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <div class="container py-4">
+        <form method="post" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ form }}
+
+            <div class="pt-3">
+                <button type="submit" class="btn btn-dark">Ok</button>
+            </div>
+
+        </form>
+    </div>
+</main>
+
+{% endblock %}
