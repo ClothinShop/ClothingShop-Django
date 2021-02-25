@@ -2,7 +2,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from app.models import Clothes
-
 from app.forms import ClothesForm
 
 
@@ -49,3 +48,19 @@ def update_clothes_info(request, id):
     # создание формы с заполнением полей данными модели
     form = ClothesForm(instance=clothes)
     return render(request, "create_clothes.html", {'form': form, 'id': clothes.pk_clothes})
+
+
+def create_clothes(request):
+    """Добавление одежды"""
+    if request.method == 'POST':
+        # Создание формы с уже готовыми параметрами
+        form = ClothesForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            # сохранение модели
+            form.save()
+            return HttpResponseRedirect('/admin')
+
+    # создание пустой формы
+    form = ClothesForm()
+    return render(request, "create_clothes.html", {'form': form})
